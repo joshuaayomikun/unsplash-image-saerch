@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import ProTip from '../src/ProTip';
 import Link from '../src/Link';
 import Copyright from '../src/Copyright';
+import { Input } from '@mui/material';
+import { createApi } from 'unsplash-js';
 
 export default function Index() {
   return (
@@ -16,6 +18,7 @@ export default function Index() {
         <Link href="/about" color="secondary">
           Go to the about page
         </Link>
+        <Input />
         <ProTip />
         <Copyright />
       </Box>
