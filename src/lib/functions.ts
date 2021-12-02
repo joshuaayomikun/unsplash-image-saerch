@@ -1,16 +1,17 @@
 import { getCookie } from ".";
-import { notificationMesage } from "../constants";
+import { cookieKeys, notificationMesage } from "../constants";
 
 export async function fetchJson<T extends Record<keyof T, T[keyof T]>>(input: RequestInfo, init?: RequestInit): Promise<T> {
 
     try {
         // console.log({init});
         // debugger
-        let token = typeof window !== "undefined" ? getCookie("token") : ""
+        let token = typeof window !== "undefined" ? getCookie(cookieKeys.token) : ""
         const response = token !== "" ? await fetch(input, typeof init === "undefined" ? {
             method: "GET",
             headers: {
-                Authorization: `bearer ${token}`
+                authorization: `Bearer ${token}`,
+                "Accept-Version": "v1"
             }
         } : init) : await fetch(input, init);
         const data = await response.json() as T
@@ -26,4 +27,14 @@ export async function fetchJson<T extends Record<keyof T, T[keyof T]>>(input: Re
         throw error
     }
 
+}
+
+export function changeObjectToQueryParams<T extends Record<keyof T, T[keyof T]>> (body : T) {
+
+    const urlencoded = new URLSearchParams();
+    Object.keys(body).forEach((x) => {
+        urlencoded.append(x, body[x as keyof T])
+    })
+
+    return urlencoded
 }
