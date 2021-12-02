@@ -1,6 +1,6 @@
 import { Search as SearchIcon } from "@mui/icons-material";
-import { alpha, Autocomplete, Box, Button, InputBase, styled, TextField } from "@mui/material";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { alpha, Autocomplete, Box, Button, styled, TextField } from "@mui/material";
+import React, { useContext, useEffect, useState } from "react";
 import { initialIndex } from "../constants/pagination";
 import { SearchContext } from "../providers/search-provider";
 
@@ -57,7 +57,6 @@ const StyledInputBase = styled(TextField)(({ theme }) => ({
 }));
 
 const SearchBar: React.FC = (_props: any) => {
-    const ref = useRef<HTMLInputElement>(null)
     const { photoSearch, pageNumber, countPerPage, gotoPage, searchHistory } = useContext(SearchContext)
     const [value, setValue] = useState("")
     useEffect(() => {

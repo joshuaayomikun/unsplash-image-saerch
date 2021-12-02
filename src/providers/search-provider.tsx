@@ -16,7 +16,7 @@ export const SearchContext = createContext<ReturnType<typeof useUnsplash> & Retu
     decrementPageNumber: () => (""),
     gotoPage: () => (""),
     setPaginationProps: () => (""),
-    mutateSearch: (photoId: {
+    mutateSearch: (_photoId: {
         id: string;
         method: string;
     }) => ("")

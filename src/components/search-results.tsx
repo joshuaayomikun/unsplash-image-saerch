@@ -5,7 +5,6 @@ import { SearchContext } from "../providers/search-provider"
 import { initialIndex } from "../constants/pagination"
 import { useNotification, AppAlert } from "./app-alert"
 import ImageList from "./image-lists"
-import { Photos } from "unsplash-js/dist/methods/search/types/response"
 import { Basic } from "unsplash-js/dist/methods/photos/types"
 
 // const Item = styled(Paper)(({ theme }) => ({

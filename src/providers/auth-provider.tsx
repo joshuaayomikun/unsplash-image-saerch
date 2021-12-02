@@ -7,7 +7,7 @@ export const AuthContext = createContext<ReturnType<typeof useAuthentication>>({
     error:undefined,
     signIn: () => (""),
     signOut: () => (""),
-    loginWithunSplash: async (code?: string) =>{}
+    loginWithunSplash: async (_code?: string) =>{}
 })
 interface AuthProviderProps {
     children: JSX.Element | JSX.Element []

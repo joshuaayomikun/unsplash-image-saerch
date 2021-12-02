@@ -1,23 +1,18 @@
 import { Box, AppBar, Toolbar, IconButton, Typography, Container, Button, Menu, MenuItem, Tooltip, Avatar } from "@mui/material";
 import React, { useContext, useState } from "react";
-import { Menu as MenuIcon } from '@mui/icons-material'
 import { AuthContext } from "../providers/auth-provider";
 import { useRouter } from "next/router";
 import { links } from "../constants/links";
 import Link from "../Link";
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = [{name:'Like Photos', url:"liked-photos"}];
 
 export default function Navbar() {
-    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+    const [_anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
     const { token, signIn, user, signOut } = useContext(AuthContext)
     const router = useRouter()
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
-    };
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElUser(event.currentTarget);
     };

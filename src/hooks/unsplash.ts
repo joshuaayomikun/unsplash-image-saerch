@@ -3,7 +3,7 @@ import { createApi } from 'unsplash-js';
 import { ACCESS_KEY, apiUrls, cookieKeys } from '../constants';
 import _ from 'lodash'
 import { Photos, } from 'unsplash-js/dist/methods/search/types/response';
-import useSWR, { mutate, useSWRConfig } from 'swr';
+import useSWR, { useSWRConfig } from 'swr';
 import { changeObjectToQueryParams, fetchJson, getCookie } from '../lib';
 import { Basic } from 'unsplash-js/dist/methods/photos/types';
 

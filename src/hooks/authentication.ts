@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import useSWR from 'swr'
+import useSWR, { useSWRConfig } from 'swr'
 import { apiUrls, ACCESS_KEY, cookieKeys, SECRET_KEY } from '../constants'
 import { fetchJson, getCookie, setCookie } from '../lib'
 import { AuthModel } from '../models/auth'
 export default function useAuthentication() {
     // const url = "/api/passport"
-    const { data: user, mutate, error } = useSWR<AuthModel>(typeof window === "undefined" || getCookie(cookieKeys.token) == "" ? null : apiUrls.unsplashProfile)
+    const {mutate} = useSWRConfig()
+    const { data: user, mutate: _mutateUser, error } = useSWR<AuthModel>(typeof window === "undefined" || getCookie(cookieKeys.token) == "" ? null : apiUrls.unsplashProfile)
     // const [user, setUser] = useState<any>()
     const [token, setToken] = useState<string>(typeof window !== "undefined" ? getCookie(cookieKeys.token) : "")
 
@@ -85,7 +86,7 @@ export default function useAuthentication() {
                 // debugger
                 if (typeof response !== "undefined") {
                     postLoginAction(response.access_token)
-                    mutate()
+                    mutate(apiUrls.unsplashProfile)
                 }
             } catch (error) {
                 throw error
