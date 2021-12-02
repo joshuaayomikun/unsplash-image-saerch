@@ -2,7 +2,7 @@
 
 ## Unsplash image search application
 
-This is the ui implementation  of PAAS
+This is the ui implementation  of Unsplash API consumption
 
 The UI was implemented with [Next.js](https://nextjs.org/), the programming language used was TypeScript
 
